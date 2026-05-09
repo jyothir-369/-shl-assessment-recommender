@@ -1,0 +1,256 @@
+[
+  {
+    "name": "Occupational Personality Questionnaire (OPQ32r)",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/occupational-personality-questionnaire-opq32/",
+    "test_type": "P",
+    "description": "Measures workplace personality traits and behavioral preferences relevant to job performance.",
+    "category": "Personality",
+    "skills": [
+      "personality",
+      "behavior",
+      "motivation",
+      "leadership",
+      "teamwork"
+    ],
+    "job_levels": [
+      "entry-level",
+      "mid-level",
+      "senior",
+      "manager"
+    ]
+  },
+  {
+    "name": "Verify Interactive G+",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/verify-interactive-g-plus/",
+    "test_type": "A",
+    "description": "Measures general cognitive ability, including numerical, deductive, and inductive reasoning.",
+    "category": "Ability",
+    "skills": [
+      "cognitive ability",
+      "problem solving",
+      "numerical reasoning",
+      "logical reasoning"
+    ],
+    "job_levels": [
+      "entry-level",
+      "mid-level",
+      "senior",
+      "manager"
+    ]
+  },
+  {
+    "name": "General Ability Screen (GSA)",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/general-ability-screen/",
+    "test_type": "A",
+    "description": "A short measure of general mental ability used for broad screening across roles.",
+    "category": "Ability",
+    "skills": [
+      "general mental ability",
+      "reasoning",
+      "screening"
+    ],
+    "job_levels": [
+      "entry-level",
+      "mid-level"
+    ]
+  },
+  {
+    "name": "Motivation Questionnaire (MQ)",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/motivation-questionnaire-mq/",
+    "test_type": "P",
+    "description": "Assesses what motivates individuals at work and the conditions that drive performance.",
+    "category": "Personality",
+    "skills": [
+      "motivation",
+      "engagement",
+      "work preferences"
+    ],
+    "job_levels": [
+      "mid-level",
+      "senior",
+      "manager"
+    ]
+  },
+  {
+    "name": "Sales Achievement Predictor (SAPA)",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/sales-achievement-predictor/",
+    "test_type": "S",
+    "description": "Predicts sales potential by measuring traits and competencies linked to sales success.",
+    "category": "Sales",
+    "skills": [
+      "sales",
+      "persuasion",
+      "customer focus"
+    ],
+    "job_levels": [
+      "entry-level",
+      "mid-level",
+      "senior"
+    ]
+  },
+  {
+    "name": "Situational Judgement Test",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/situational-judgement-test/",
+    "test_type": "S",
+    "description": "Measures decision-making and judgment in realistic workplace scenarios.",
+    "category": "Situational Judgment",
+    "skills": [
+      "judgment",
+      "decision making",
+      "interpersonal effectiveness"
+    ],
+    "job_levels": [
+      "entry-level",
+      "mid-level",
+      "senior",
+      "manager"
+    ]
+  },
+  {
+    "name": "Java 8 (New)",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/java-8-new/",
+    "test_type": "K",
+    "description": "Assesses practical knowledge of Java programming and object-oriented development.",
+    "category": "Technical",
+    "skills": [
+      "java",
+      "object-oriented programming",
+      "software development"
+    ],
+    "job_levels": [
+      "entry-level",
+      "mid-level",
+      "senior"
+    ]
+  },
+  {
+    "name": "Core Java (Entry Level)",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/core-java-entry-level/",
+    "test_type": "K",
+    "description": "Measures foundational Java programming knowledge for junior developers.",
+    "category": "Technical",
+    "skills": [
+      "java",
+      "programming fundamentals"
+    ],
+    "job_levels": [
+      "intern",
+      "entry-level"
+    ]
+  },
+  {
+    "name": "Python (New)",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/python-new/",
+    "test_type": "K",
+    "description": "Assesses practical Python programming skills and coding proficiency.",
+    "category": "Technical",
+    "skills": [
+      "python",
+      "coding",
+      "software development"
+    ],
+    "job_levels": [
+      "entry-level",
+      "mid-level",
+      "senior"
+    ]
+  },
+  {
+    "name": "SQL Server",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/sql-server/",
+    "test_type": "K",
+    "description": "Measures SQL and database querying knowledge.",
+    "category": "Technical",
+    "skills": [
+      "sql",
+      "database",
+      "querying"
+    ],
+    "job_levels": [
+      "entry-level",
+      "mid-level",
+      "senior"
+    ]
+  },
+  {
+    "name": "JavaScript",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/javascript/",
+    "test_type": "K",
+    "description": "Assesses JavaScript programming knowledge for web development roles.",
+    "category": "Technical",
+    "skills": [
+      "javascript",
+      "web development"
+    ],
+    "job_levels": [
+      "entry-level",
+      "mid-level",
+      "senior"
+    ]
+  },
+  {
+    "name": "Microsoft Excel",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/microsoft-excel/",
+    "test_type": "K",
+    "description": "Measures spreadsheet and data analysis skills in Microsoft Excel.",
+    "category": "Office Skills",
+    "skills": [
+      "excel",
+      "spreadsheets",
+      "data analysis"
+    ],
+    "job_levels": [
+      "entry-level",
+      "mid-level"
+    ]
+  },
+  {
+    "name": "Customer Service Phone Simulation",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/customer-service-phone-simulation/",
+    "test_type": "S",
+    "description": "Simulates customer interactions to assess service orientation and communication.",
+    "category": "Simulation",
+    "skills": [
+      "customer service",
+      "communication",
+      "problem solving"
+    ],
+    "job_levels": [
+      "entry-level",
+      "mid-level"
+    ]
+  },
+  {
+    "name": "Contact Center Simulation",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/contact-center-simulation/",
+    "test_type": "S",
+    "description": "Assesses customer interaction skills in a contact center environment.",
+    "category": "Simulation",
+    "skills": [
+      "contact center",
+      "customer service",
+      "communication"
+    ],
+    "job_levels": [
+      "entry-level",
+      "mid-level"
+    ]
+  },
+  {
+    "name": "Project Management",
+    "url": "https://www.shl.com/solutions/products/product-catalog/view/project-management/",
+    "test_type": "K",
+    "description": "Measures knowledge of project planning, execution, and stakeholder management.",
+    "category": "Business Skills",
+    "skills": [
+      "project management",
+      "planning",
+      "stakeholder management"
+    ],
+    "job_levels": [
+      "mid-level",
+      "senior",
+      "manager"
+    ]
+  }
+]

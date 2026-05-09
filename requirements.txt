@@ -1,0 +1,33 @@
+# Core FastAPI Server
+fastapi==0.115.12
+uvicorn[standard]==0.34.2
+pydantic==2.11.4
+
+# HTTP Client
+httpx==0.28.1
+requests==2.32.3
+
+# Environment Variables
+python-dotenv==1.0.1
+
+# LLM Integration (Optional - Groq / Grok for response generation)
+groq==0.9.0
+
+# Catalog Processing & Retrieval
+beautifulsoup4==4.13.4
+scikit-learn==1.6.1
+
+# Optional semantic retrieval (only keep if explicitly using embeddings)
+# sentence-transformers==3.4.1
+
+# Optional vector search (Windows-compatible pinned version)
+# faiss-cpu==1.10.0
+
+# Frontend / Demo UI (optional)
+# streamlit==1.42.0
+
+# Testing
+pytest==8.3.5
+
+# Utilities
+tqdm==4.66.4
