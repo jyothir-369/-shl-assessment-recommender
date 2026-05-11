@@ -1,7 +1,8 @@
 # Core FastAPI Server
-fastapi==0.115.12
+
+fastapi>=0.115.12
+pydantic>=2.11.7
 uvicorn[standard]==0.34.2
-pydantic==2.11.4
 
 # HTTP Client
 httpx==0.28.1
