@@ -1,28 +1,34 @@
-# SHL Assessment Recommender
+# SHL Conversational Assessment Recommender
 
-A stateless conversational API that recommends relevant SHL assessments from the SHL Product Catalog (restricted to Individual Test Solutions). The service interprets a multi-turn hiring conversation, asks clarifying questions when needed, and returns grounded recommendations with official SHL catalog URLs.
+A **stateless conversational AI** that helps hiring managers go from vague role descriptions to a grounded shortlist of **SHL Individual Test Solutions**.
+
+This project was built as a submission for the **SHL AI Intern** take-home assignment.
+
+---
+
+## 🌐 Live Deployment
+
+- **Frontend (Streamlit)**: [https://jyothir-shl-recommender.streamlit.app/](https://jyothir-shl-recommender.streamlit.app/)
+- **Backend API (Render)**: [https://shl-recommender-api-3rd3.onrender.com](https://shl-recommender-api-3rd3.onrender.com)
+- **API Documentation**: [https://shl-recommender-api-3rd3.onrender.com/docs](https://shl-recommender-api-3rd3.onrender.com/docs)
 
 ---
 
 ## Assignment Requirements Satisfied
 
-This project implements all core requirements from the SHL AI Intern take-home assignment:
+This implementation fully addresses all core requirements of the SHL take-home assignment:
 
-- Uses a local `catalog.json` built from SHL Individual Test Solutions only.
-- Exposes:
+- **Catalog Handling**: Uses `catalog.json` containing only **Individual Test Solutions**.
+- **API Endpoints**:
   - `GET /health`
-  - `POST /chat`
-- Accepts the full conversation history on every request (stateless API).
-- Supports:
-  - Clarification of vague requests
-  - Recommendations (1–10 assessments)
-  - Refinement when requirements change
-  - Comparison of named assessments
-- Refuses:
-  - General hiring advice
-  - Legal and salary questions
-  - Prompt-injection attempts
-- Returns only catalog-backed assessment names and URLs.
+  - `POST /chat` (stateless — accepts full conversation history)
+- **Conversational Behaviors**:
+  - Clarifies vague queries before recommending
+  - Provides 1–10 relevant recommendations with official SHL URLs
+  - Supports refinement (e.g., Java → Python, add personality)
+  - Supports comparison between assessments
+- **Safety**: Refuses off-topic, legal, salary, and prompt-injection attempts
+- **Grounding**: All recommendations and URLs come strictly from the catalog
 
 ---
 
@@ -32,190 +38,86 @@ This project implements all core requirements from the SHL AI Intern take-home a
 project-root/
 ├── app/
 │   ├── __init__.py
+│   ├── main.py
 │   ├── agent.py
 │   ├── catalog.py
 │   ├── interpreter.py
-│   ├── main.py
 │   └── schemas.py
 ├── catalog.json
+├── streamlit_app.py
 ├── requirements.txt
 ├── README.md
 └── tests/
-    ├── test_api.py
-    └── test_agent.py
 
-
-
-
-
-
-
-Setup
-1. Clone the Repository
+Setup & Running Locally
+Bash# 1. Clone repo
 git clone <your-repo-url>
 cd project-root
-2. Create a Virtual Environment
+
+# 2. Create virtual environment
 python -m venv .venv
-source .venv/bin/activate      # macOS/Linux
-# .venv\Scripts\activate       # Windows
-3. Install Dependencies
+source .venv/bin/activate        # macOS/Linux
+# .venv\Scripts\activate         # Windows
+
+# 3. Install dependencies
 pip install -r requirements.txt
-Environment Variables
 
-No environment variables are required for the default implementation.
-
-Optional (if you later integrate an LLM API):
-
-OPENAI_API_KEY=...
-GROQ_API_KEY=...
-GEMINI_API_KEY=...
-
-The current implementation works entirely with deterministic retrieval and rule-based logic.
-
-Running the API Locally
+# 4. Run FastAPI backend
 uvicorn app.main:app --reload
+API will be available at: http://127.0.0.1:8000
+Swagger UI: http://127.0.0.1:8000/docs
 
-The API will be available at:
-
-http://127.0.0.1:8000
-Swagger docs: http://127.0.0.1:8000/docs
-API Endpoints
-GET /health
-
-Returns service readiness.
-
-Response
-{
-  "status": "ok"
-}
-POST /chat
-
-Processes the full conversation history and returns the next assistant response.
-
-Request
-{
-  "messages": [
-    {
-      "role": "user",
-      "content": "Hiring a Java developer who works with stakeholders"
-    },
-    {
-      "role": "assistant",
-      "content": "What is the seniority level for this role?"
-    },
-    {
-      "role": "user",
-      "content": "Mid-level, around 4 years"
-    }
-  ]
-}
-Response
-{
-  "reply": "Based on the role requirements, here are 5 SHL assessments to consider.",
-  "recommendations": [
-    {
-      "name": "Java 8 (New)",
-      "url": "https://www.shl.com/solutions/products/product-catalog/view/java-8-new/",
-      "test_type": "K"
-    },
-    {
-      "name": "Occupational Personality Questionnaire (OPQ32r)",
-      "url": "https://www.shl.com/solutions/products/product-catalog/view/occupational-personality-questionnaire-opq32/",
-      "test_type": "P"
-    }
-  ],
-  "end_of_conversation": true
-}
-Testing the API
-Using cURL
-curl http://127.0.0.1:8000/health
-curl -X POST http://127.0.0.1:8000/chat \
+API Usage
+Health Check
+Bashcurl https://shl-recommender-api-3rd3.onrender.com/health
+Chat Endpoint
+Bashcurl -X POST https://shl-recommender-api-3rd3.onrender.com/chat \
   -H "Content-Type: application/json" \
   -d '{
     "messages": [
-      {"role": "user", "content": "I am hiring a Python developer"}
+      {"role": "user", "content": "I am hiring a mid-level Java developer"}
     ]
   }'
-Running Unit Tests
-pytest -v
-Catalog Data
 
-catalog.json contains structured entries from the SHL Product Catalog, restricted to Individual Test Solutions.
+Key Features & Design Choices
 
-Each entry includes:
+Stateless Architecture: Full conversation history sent with every request.
+Strong Clarification Logic: Avoids premature recommendations.
+Hybrid Retrieval: Combines keyword matching and scoring for high relevance.
+Balanced Recommendations: Intelligently mixes Knowledge (K), Ability (A), and Personality (P) tests when appropriate.
+Refinement Support: Handles changes in role, level, or focus effectively.
+Comparison Capability: Grounded comparison using catalog data only.
+CORS Enabled: Supports frontend deployment on Streamlit Cloud.
 
-name
-url
-test_type
-description
-category
-skills
-job_levels
 
-The CatalogStore loads this file at startup and validates that all URLs are SHL catalog URLs.
+Testing
+Bashpytest -v
+Recommended manual test prompts:
 
-Retrieval and Recommendation Logic
-1. Conversation Interpretation
+"I’m hiring a mid-level backend Java developer with 4 years experience..."
+"Compare OPQ and GSA"
+"Actually, change it to Python and add more personality assessments"
 
-interpreter.py extracts:
-
-Role title
-Seniority
-Desired assessment types
-Constraints
-Mentioned assessments
-Intent (clarify, recommend, refine, compare, off-topic)
-2. Catalog Retrieval
-
-catalog.py performs lightweight hybrid ranking using:
-
-Exact name matching
-Keyword overlap
-Token-based lexical scoring
-3. Agent Orchestration
-
-agent.py decides whether to:
-
-Ask a clarifying question
-Recommend assessments
-Refine a shortlist
-Compare two assessments
-Refuse out-of-scope requests
-
-All recommendations are grounded in catalog.json.
-
-Stateless API Design
-
-The API stores no conversation state.
-
-Every POST /chat request must include the complete conversation history, and the response is computed solely from that history.
-
-This matches the assignment's required architecture and simplifies deployment.
 
 Deployment
 
-The application can be deployed to platforms such as:
+Backend: Deployed on Render (FastAPI + Uvicorn)
+Frontend: Deployed on Streamlit Community Cloud
+Both services are publicly accessible.
 
-Render
-Railway
-Fly.io
-Hugging Face Spaces
-Example Render Start Command
-uvicorn app.main:app --host 0.0.0.0 --port $PORT
-Design Principles
-Deterministic and testable
-No hallucinated recommendations
-Only SHL catalog-backed URLs
-Lightweight dependencies
-Fast cold starts
-Production-ready FastAPI structure
-Future Improvements
-Automated full-catalog scraper from SHL
-TF-IDF or embedding-based ranking
-Evaluation against provided sample conversations
-Optional LLM-assisted explanation generation
+
 License
+This project was developed as part of the SHL AI Intern take-home assignment (2026).
 
-This project was created for the SHL AI Intern take-home assignment.
+Made with ❤️ for SHL Labs
+text---
 
+### Next Steps (Recommended)
 
+1. Copy the above content into your `README.md`
+2. Commit and push:
+
+```bash
+git add README.md
+git commit -m "Update README with live links and improved documentation"
+git push
